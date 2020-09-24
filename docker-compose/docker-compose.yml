@@ -1,0 +1,10 @@
+version: "3.7"
+
+services:
+    website-api:
+        build:
+            context: ..
+            dockerfile: ./Website.Api/Dockerfile
+        ports: 
+            - "80:80"
+        restart: always
