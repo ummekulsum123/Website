@@ -7,9 +7,8 @@
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0" />
   </ItemGroup>
-
   <ItemGroup>
-    <ProjectReference Include="..\Website.Data\Website.Data.csproj" />
+    <ProjectReference Include="..\Website.Infrastructure\Website.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

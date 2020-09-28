@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
-using Website.Data;
-using Website.Data.Entities;
+using Website.Domain.Abstractions.Repositories;
+using Website.Domain.Entities;
 
 namespace Website.Api.Controllers
 {
@@ -13,34 +13,22 @@ namespace Website.Api.Controllers
 	[ApiController]
 	public class StudentController : ControllerBase
 	{
-		private readonly WebsiteDbContext _websiteDbContext;
+		private readonly IStudentRepository _studentRepository;
 
-		public StudentController(WebsiteDbContext websiteDbContext)
-		{
-			_websiteDbContext = websiteDbContext ?? throw new ArgumentNullException(nameof(websiteDbContext));
-		}
-	
+		public StudentController(IStudentRepository studentRepository) => _studentRepository = studentRepository ?? throw new ArgumentNullException(nameof(studentRepository));
+
 		/// <summary>
 		/// Создаёт студента.
 		/// </summary>
 		/// <param name="studentEntity">Модель студента.</param>
 		[HttpPost]
-		public Task CreateStudent(StudentEntity studentEntity)
-		{
-			_websiteDbContext.Add(studentEntity);
-			_websiteDbContext.SaveChanges();
-			return Task.CompletedTask;
-		}
-
+		public Task CreateStudent(Student student) => _studentRepository.CreateStudent(student);
 		/// <summary>
 		/// Возвращает модель студента.
 		/// </summary>
 		/// <param name="studentId">Идентификатор студента.</param>
 		/// <returns>Модель студента.</returns>
 		[HttpGet("studentId")]
-		public async Task<StudentEntity> GetStudent(int studentId)
-		{
-			return await _websiteDbContext.FindAsync<StudentEntity>(studentId);
-		}
+		public Task<Student> GetStudent(int studentId) => _studentRepository.GetStudent(studentId);
 	}
 }
