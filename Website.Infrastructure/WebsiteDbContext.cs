@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Website.Data.Entities;
+using Website.Domain.Entities;
 
-namespace Website.Data
+namespace Website.Infrastructure
 {
     /// <summary>
     /// Представляет контекст для доступа к данным в базе данных.
     /// </summary>
-	public class WebsiteDbContext : DbContext
+    internal class WebsiteDbContext : DbContext
     {
         public WebsiteDbContext(DbContextOptions<WebsiteDbContext> options) : base(options)
         {
@@ -16,7 +16,7 @@ namespace Website.Data
         /// <summary>
         /// Таблица студентов.
         /// </summary>
-        public DbSet<StudentEntity> Students { get; set; }
+        public DbSet<Student> Students { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

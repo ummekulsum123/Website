@@ -1,11 +1,11 @@
 ﻿using System;
 
-namespace Website.Data.Entities
+namespace Website.Domain.Entities
 {
 	/// <summary>
 	/// Представляет сущность студента.
 	/// </summary>
-	public class StudentEntity
+	public class Student
 	{
 		/// <summary>
 		/// Идентификатор.
