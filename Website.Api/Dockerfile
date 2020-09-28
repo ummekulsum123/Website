@@ -3,6 +3,7 @@ WORKDIR /src
 COPY ["Website.Api", "Website.Api/"]
 COPY ["Website.Domain", "Website.Domain/"]
 COPY ["Website.Infrastructure", "Website.Infrastructure/"]
+COPY ["Common", "Common/"]
 
 FROM copier AS publish
 WORKDIR /src/Website.Api

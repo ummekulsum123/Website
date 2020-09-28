@@ -25,6 +25,7 @@ namespace Website.Infrastructure
 		static private void AddRepositories(this IServiceCollection serviceCollection)
 		{
 			serviceCollection.AddScoped<IStudentRepository, StudentRepository>();
+			serviceCollection.AddScoped<IQuestionRepository, QuestionRepository>();
 		}
 		static private void AddDatabase(this IServiceCollection serviceCollection, IConfiguration configuration)
 		{

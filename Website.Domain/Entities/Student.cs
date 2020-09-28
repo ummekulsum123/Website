@@ -10,7 +10,7 @@ namespace Website.Domain.Entities
 		/// <summary>
 		/// Идентификатор.
 		/// </summary>
-		public int Id { get; set; }
+		public Guid Id { get; set; }
 		/// <summary>
 		/// ФИО студента.
 		/// </summary>

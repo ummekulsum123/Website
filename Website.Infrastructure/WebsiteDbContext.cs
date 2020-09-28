@@ -17,6 +17,10 @@ namespace Website.Infrastructure
         /// Таблица студентов.
         /// </summary>
         public DbSet<Student> Students { get; set; }
+        /// <summary>
+        /// Таблица вопросов.
+        /// </summary>
+        public DbSet<Question> Questions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

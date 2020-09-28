@@ -20,13 +20,13 @@ namespace Website.Infrastructure.Repositories
 		///<inheritdoc/>
 		public Task CreateStudent(Student student)
 		{
-			_websiteDbContext.Add(student);
+			_websiteDbContext.Students.Add(student);
 			return _websiteDbContext.SaveChangesAsync();
 		}
 		///<inheritdoc/>
 		public async Task<Student> GetStudent(int studentId)
 		{
-			return await _websiteDbContext.FindAsync<Student>(studentId);
+			return await _websiteDbContext.Students.FindAsync(studentId);
 		}
 	}
 }

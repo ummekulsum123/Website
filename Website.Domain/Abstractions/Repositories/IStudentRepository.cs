@@ -4,7 +4,7 @@ using Website.Domain.Entities;
 namespace Website.Domain.Abstractions.Repositories
 {
 	/// <summary>
-	/// Представляет репозиторий для работы с пациентами.
+	/// Представляет репозиторий для работы со студентами.
 	/// </summary>
 	public interface IStudentRepository
 	{
