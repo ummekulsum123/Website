@@ -2,7 +2,6 @@
 FROM node:10.15.1 AS build
 WORKDIR /usr/src/app
 COPY Frontend ./
-RUN ls
 RUN npm i
 ARG Environment=Production
 ENV NODE_ENV=$Environment

@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -9,6 +8,7 @@ using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerUI;
 using System;
 using System.IO;
+using System.Reflection;
 using System.Threading.Tasks;
 using Website.Infrastructure;
 
@@ -41,7 +41,9 @@ namespace Website.Api
 			services.AddSwaggerGen(opt =>
 			{
 				opt.SwaggerDoc("v1", new OpenApiInfo { Title = "Документация API сайта кафедры ИУ-2 КФ МГТУ", Version = "v1" });
+                opt.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, $"{Assembly.GetExecutingAssembly().GetName().Name}.xml"));
                 opt.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "Website.Domain.xml"));
+				opt.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "Common.xml"));
 			});
 		}
 		private static void UseSwagger(IApplicationBuilder app)
