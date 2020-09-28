@@ -351,3 +351,4 @@ MigrationBackup/
 
 # ide files
 .idea/
+/.idea/
