@@ -10,7 +10,7 @@ using Swashbuckle.AspNetCore.SwaggerUI;
 using System;
 using System.IO;
 using System.Threading.Tasks;
-using Website.Data;
+using Website.Infrastructure;
 
 namespace Website.Api
 {
@@ -22,13 +22,7 @@ namespace Website.Api
 
 		public void ConfigureServices(IServiceCollection services)
 		{
-			services.AddEntityFrameworkNpgsql();
-			services.AddDbContext<WebsiteDbContext>(options =>
-			{
-				string connectionString = Configuration["Storage:ConnectionString"];
-				string assemplyName = typeof(WebsiteDbContext).Assembly.GetName().Name;
-				options.UseNpgsql(connectionString, npgsqlOptions => { npgsqlOptions.MigrationsAssembly(assemplyName); });
-			});
+			services.AddWebsiteInfrastructure(Configuration);
 			services.AddControllers();
 			AddSwaggerService(services);
 		}
@@ -47,7 +41,7 @@ namespace Website.Api
 			services.AddSwaggerGen(opt =>
 			{
 				opt.SwaggerDoc("v1", new OpenApiInfo { Title = "Документация API сайта кафедры ИУ-2 КФ МГТУ", Version = "v1" });
-                opt.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "Website.Data.xml"));
+                opt.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "Website.Domain.xml"));
 			});
 		}
 		private static void UseSwagger(IApplicationBuilder app)
