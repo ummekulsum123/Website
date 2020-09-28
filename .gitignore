@@ -350,8 +350,4 @@ MigrationBackup/
 .ionide/
 
 # ide files
-/.idea
-/.vscode
-/.history
-/flow-typed
-/jsconfig.json
+.idea/
