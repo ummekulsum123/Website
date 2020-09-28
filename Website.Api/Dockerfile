@@ -1,7 +1,8 @@
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS copier
 WORKDIR /src
 COPY ["Website.Api", "Website.Api/"]
-COPY ["Website.Data", "Website.Data/"]
+COPY ["Website.Domain", "Website.Domain/"]
+COPY ["Website.Infrastructure", "Website.Infrastructure/"]
 
 FROM copier AS publish
 WORKDIR /src/Website.Api
