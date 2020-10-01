@@ -32,4 +32,4 @@ services:
             POSTGRES_USER: postgres
             POSTGRES_PASSWORD: 64023sdfdf5964sfgd31
         ports:
-            - 5432:5432
+            - 25001:5432
