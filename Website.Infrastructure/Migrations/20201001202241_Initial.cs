@@ -8,6 +8,20 @@ namespace Website.Infrastructure.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "MediaContents",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    FileName = table.Column<string>(nullable: true),
+                    ContentType = table.Column<string>(nullable: false),
+                    Content = table.Column<byte[]>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MediaContents", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Questions",
                 columns: table => new
                 {
@@ -38,6 +52,9 @@ namespace Website.Infrastructure.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "MediaContents");
+
             migrationBuilder.DropTable(
                 name: "Questions");
 

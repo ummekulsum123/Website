@@ -24,7 +24,7 @@ namespace Website.Infrastructure.Repositories
 			return _websiteDbContext.SaveChangesAsync();
 		}
 		///<inheritdoc/>
-		public async Task<Student> GetStudent(int studentId)
+		public async Task<Student> GetStudent(Guid studentId)
 		{
 			return await _websiteDbContext.Students.FindAsync(studentId);
 		}

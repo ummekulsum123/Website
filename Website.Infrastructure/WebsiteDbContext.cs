@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Website.Domain.Entities;
+using Website.Infrastructure.EntityConfigurations;
 
 namespace Website.Infrastructure
 {
@@ -21,6 +22,10 @@ namespace Website.Infrastructure
         /// Таблица вопросов.
         /// </summary>
         public DbSet<Question> Questions { get; set; }
+        /// <summary>
+        /// Таблица медиаконтента.
+        /// </summary>
+        public DbSet<MediaContent> MediaContents { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

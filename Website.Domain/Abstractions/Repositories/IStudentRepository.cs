@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Website.Domain.Entities;
 
 namespace Website.Domain.Abstractions.Repositories
@@ -18,6 +19,6 @@ namespace Website.Domain.Abstractions.Repositories
 		/// </summary>
 		/// <param name="studentId">Идентификатор студента.</param>
 		/// <returns>Модель студента.</returns>
-		public Task<Student> GetStudent(int studentId);
+		public Task<Student> GetStudent(Guid studentId);
 	}
 }

@@ -20,7 +20,7 @@ namespace Website.Api.Controllers
 		/// <summary>
 		/// Создаёт студента.
 		/// </summary>
-		/// <param name="studentEntity">Модель студента.</param>
+		/// <param name="student">Модель студента.</param>
 		[HttpPost]
 		public Task CreateStudent(Student student) => _studentRepository.CreateStudent(student);
 		/// <summary>
@@ -29,6 +29,6 @@ namespace Website.Api.Controllers
 		/// <param name="studentId">Идентификатор студента.</param>
 		/// <returns>Модель студента.</returns>
 		[HttpGet("studentId")]
-		public Task<Student> GetStudent(int studentId) => _studentRepository.GetStudent(studentId);
+		public Task<Student> GetStudent(Guid studentId) => _studentRepository.GetStudent(studentId);
 	}
 }
