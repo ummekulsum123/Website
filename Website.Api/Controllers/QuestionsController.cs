@@ -57,7 +57,7 @@ namespace Website.Api.Controllers
 		/// <param name="page">Номер страницы.</param>
 		/// <param name="count">Количество выгружаемых элементов.</param>
 		/// <returns>Вопросы</returns>
-		[HttpGet()]
+		[HttpGet]
 		public Task<CollectionResult<Question>> GetQuestions(int page = 1, int count = 10)
 		{
 			if (page <= 0)
